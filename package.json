@@ -1,0 +1,19 @@
+{
+  "name": "nox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node ./src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ethersproject/contracts": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "abitype": "^0.10.3",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.10.0"
+  }
+}
