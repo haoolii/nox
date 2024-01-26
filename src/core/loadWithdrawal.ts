@@ -3,7 +3,6 @@ import { L1BridgeAbi, L2BridgeAbi } from "./abis";
 import { WithdrawData } from "./type";
 import { getTimestampIsoString } from "./utils";
 import { JsonRpcProvider, Log } from "@ethersproject/providers";
-import { BigNumber } from "@ethersproject/bignumber";
 
 export function getLogArgs(
     logs: Log[],
@@ -26,7 +25,7 @@ export function getLogArgs(
     }
   
     return log.args;
-  }
+}
 
 export async function loadWithdrawal(
     provider: JsonRpcProvider,

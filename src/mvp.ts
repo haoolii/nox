@@ -7,6 +7,9 @@ import { getBlockHash } from "./core/utils";
 import { loadWithdrawal } from "./core/loadWithdrawal";
 import { L1Bridge } from "./core/Bridge";
 import { useL1Bridge, useL2Bridge } from "./hooks/useBridge";
+import { loadDeposit } from "./core/loadDeposit";
+import { useDepositStatus } from "./hooks/useDepositStatus";
+import { useWithdrawStatus } from "./hooks/useWithdrawStatus";
 
 const walletInfo = {
   address: process.env.WALLET_ADDRESS,
@@ -171,11 +174,28 @@ const finalizeWithdraw = async () => {
   console.log("==== MVP Finalize Withdraw End ====");
 }
 
-
-
 export const execute = async () => {
   console.log("MVP");
-  // await deposit();
+  const nativeToken = useNativeTokenConfig();
+  // Deposit 0xb900a0e197f19a5e958ec258b6590f7eac438f9657a51cbd2a32b69cf3dcc41c
+  // const txHash = '0xb900a0e197f19a5e958ec258b6590f7eac438f9657a51cbd2a32b69cf3dcc41c';
+  // const l1Provider = useStaticProvider('l1');
+  // const data = await loadDeposit(l1Provider, txHash, nativeToken.l1Address);
+  // const output = await useDepositStatus(txHash)
+  // console.log(output)
 
-  await finalizeWithdraw();
+  const txHash = '0xc97214cb571582fc3dbaab0242a02ab41c169f20714aba2c5c8ad465b12635b0';
+  const data = await useWithdrawStatus(txHash)
+  console.log('data', data)
+  // const withdraw = await loadWithdrawal(l2Provider, txHash, nativeToken?.l1Address);
+  // const [error, deposit] = await asyncTryCatch(
+  //   loadDeposit,
+  //   l1Provider,
+  //   txHash,
+  //   nativeToken.l1Address
+  // );
+  // await deposit();
+  // await withdraw();
+
+  // await finalizeWithdraw();
 };
